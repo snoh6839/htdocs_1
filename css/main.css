@@ -171,6 +171,71 @@ body {
   font-weight: bold;
 }
 
+.calendar_container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.calendar-header {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.month {
+  flex: 1 1 100%;
+  text-align: center;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.calendar-day {
+  flex: 1 1 14.28%;
+  text-align: center;
+  padding: 10px;
+  font-size: 16px;
+  color: #666;
+}
+
+.calendar-body {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: #fff;
+}
+
+.calendar-date {
+  flex: 1 1 14.28%;
+  text-align: center;
+  padding: 10px;
+  font-size: 16px;
+  color: #666;
+}
+
+.calendar-date:hover {
+  cursor: pointer;
+  background-color: #f2f2f2;
+}
+
+.circle {
+  background-color: #6886c5;
+  color: #fff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  margin: 0 auto;
+  line-height: 30px;
+  font-weight: bold;
+}
+
+
 @media screen and (max-width: 1200px) {
 
   #main {
@@ -239,70 +304,6 @@ body {
 #HOME .login form button, #HOME .login a {
   right: 10%;
 }
-}
-
-.calendar_container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-  font-family: Arial, sans-serif;
-}
-
-.calendar-header {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  background-color: #f2f2f2;
-  font-weight: bold;
-}
-
-.month {
-  flex: 1 1 100%;
-  text-align: center;
-  padding: 10px;
-  font-size: 20px;
-}
-
-.calendar-day {
-  flex: 1 1 14.28%;
-  text-align: center;
-  padding: 10px;
-  font-size: 16px;
-  color: #666;
-}
-
-.calendar-body {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  background-color: #fff;
-}
-
-.calendar-date {
-  flex: 1 1 14.28%;
-  text-align: center;
-  padding: 10px;
-  font-size: 16px;
-  color: #666;
-}
-
-.calendar-date:hover {
-  cursor: pointer;
-  background-color: #f2f2f2;
-}
-
-.circle {
-  background-color: #6886c5;
-  color: #fff;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  margin: 0 auto;
-  line-height: 30px;
-  font-weight: bold;
 }
 
 
