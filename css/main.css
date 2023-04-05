@@ -175,66 +175,48 @@ body {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  max-width: 400px;
+  height: 100%;
   margin: 0 auto;
-  font-family: Arial, sans-serif;
 }
 
 .calendar-header {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  background-color: #f2f2f2;
+  height: 10%;
+  align-items: center;
+  background-color: var(--button-bg-color);
   font-weight: bold;
 }
 
 .month {
   flex: 1 1 100%;
   text-align: center;
+  align-items: center;
   padding: 10px;
   font-size: 20px;
-}
-
-.calendar-day {
-  flex: 1 1 14.28%;
-  text-align: center;
-  padding: 10px;
-  font-size: 16px;
-  color: #666;
 }
 
 .calendar-body {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  background-color: #fff;
+  height: 90%;
+  background-color: var(--bg-color);
 }
 
 .calendar-date {
   flex: 1 1 14.28%;
-  text-align: center;
+  /* text-align: center; */
   padding: 10px;
   font-size: 16px;
-  color: #666;
+  color: var(--default-text-color);
 }
 
 .calendar-date:hover {
   cursor: pointer;
-  background-color: #f2f2f2;
+  background-color: var(--active-button-color);
 }
-
-.circle {
-  background-color: #6886c5;
-  color: #fff;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  margin: 0 auto;
-  line-height: 30px;
-  font-weight: bold;
-}
-
 
 @media screen and (max-width: 1200px) {
 

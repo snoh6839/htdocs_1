@@ -130,14 +130,8 @@
                     $month = date('m');
                     $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);
 
-                    echo "<div class='calendar-header'><div class='month'>$month</div>";
-                    echo "<div class='calendar-day'>일</div>
-                        <div class='calendar-day'>월</div>
-                        <div class='calendar-day'>화</div>
-                        <div class='calendar-day'>수</div>
-                        <div class='calendar-day'>목</div>
-                        <div class='calendar-day'>금</div>
-                        <div class='calendar-day'>토</div></div><div class='calendar-body'>";
+                    echo "<div class='calendar-header'><div class='month'>$month</div></div>";
+                    echo "<div class='calendar-body'>";
 
                     // 달력 출력
                     for ($i = 1; $i <= $daysInMonth; $i++) {
@@ -145,9 +139,17 @@
                         $class = ($today == "$year-$month-$i") ? "circle" : "";
 
                         // todolist 테이블에서 해당 날짜의 데이터가 있는지 확인
-                        $sql = "SELECT * FROM todolist WHERE from_date <= '$year-$month-$i' AND to_date >= '$year-$month-$i'";
+                        $sql = "SELECT inf.mem_no, inf.mem_ID, li.head
+                                FROM member_inf AS inf
+                                    INNER JOIN todolist as li
+                                    ON inf.mem_no = li.mem_no
+                                WHERE inf.mem_no = :mem_no
+                                    and from_date <= '$year-$month-$i'
+                                    AND to_date >= '$year-$month-$i'";
                         $result = $conn->query($sql);
                         $data = $result->fetch_assoc();
+
+                        // 
 
                         // 해당 날짜의 배경색과 글자색 결정
                         $bgcolor = "";
@@ -157,15 +159,14 @@
                             $textcolor = "#fff";
                         }
 
-                        // head 칼럼의 길이가 5 이상인 경우 5글자 + ...으로 축약
-                        // $head = $data['head'];
-                        // if (strlen($head) > 5) {
-                        //     $head = substr($head, 0, 5) . "...";
-                        // }
+                        // $head = $data['li.head'];
 
                         // 해당 날짜 출력
-                        // echo "<div class='calendar-date $class' style='background-color: $bgcolor; color: $textcolor;'>$i<br>$head</div>";
-                        echo "<div class='calendar-date' style='background-color: $bgcolor; color: $textcolor;'>$i</div>";
+                        // if($head = $data['head']){
+                            // echo "<div class='calendar-date $class' style='background-color: $bgcolor; color: $textcolor;'>$i<br>$head</div>";
+                        // }else{
+                            echo "<div class='calendar-date $class' style='background-color: $bgcolor; color: $textcolor;'>$i</div>";
+                        // }
                     }
                         echo "</div>";
                     // DB 연결 종료
