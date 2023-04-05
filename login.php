@@ -144,7 +144,7 @@
                                 FROM member_inf AS inf
                                     INNER JOIN todolist as li
                                     ON inf.mem_no = li.mem_no
-                                WHERE inf.mem_no = :mem_no
+                                WHERE inf.mem_no = 1
                                     and from_date <= '$year-$month-$i'
                                     AND to_date >= '$year-$month-$i'";
                         $result = $conn->query($sql);
@@ -166,7 +166,7 @@
                         // $head = $data['head']
                         // echo "<div class='calendar-date $class' style='background-color: $bgcolor; color: $textcolor;'>$i<br>$head</div>";
                         
-                        echo "<div class='calendar-date $class' style='background-color: $bgcolor; color: $textcolor;'>$i</div>";
+                        echo "<div class='calendar-date $class' style='background-color: $bgcolor; color: $textcolor;'>$i<br>$data</div>";
                         
                     }
                         echo "</div>";
