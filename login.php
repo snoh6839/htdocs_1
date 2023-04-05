@@ -106,16 +106,6 @@
 
         <div id="CALENDAR" class="hidden">
             <div class="calendar_container">
-                <div class="calendar-header">
-                    <div class="calendar-day">일</div>
-                    <div class="calendar-day">월</div>
-                    <div class="calendar-day">화</div>
-                    <div class="calendar-day">수</div>
-                    <div class="calendar-day">목</div>
-                    <div class="calendar-day">금</div>
-                    <div class="calendar-day">토</div>
-                </div>
-                <div class="calendar-body">
                     <?php
                     // DB 연결 설정
                     $servername = "localhost";
@@ -139,6 +129,15 @@
                     $year = date('Y');
                     $month = date('m');
                     $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);
+
+                    echo "<div class='calendar-header'><div class='month'>$month</div>";
+                    echo "<div class='calendar-day'>일</div>
+                        <div class='calendar-day'>월</div>
+                        <div class='calendar-day'>화</div>
+                        <div class='calendar-day'>수</div>
+                        <div class='calendar-day'>목</div>
+                        <div class='calendar-day'>금</div>
+                        <div class='calendar-day'>토</div></div><div class='calendar-body'>";
 
                     // 달력 출력
                     for ($i = 1; $i <= $daysInMonth; $i++) {
@@ -168,7 +167,7 @@
                         // echo "<div class='calendar-date $class' style='background-color: $bgcolor; color: $textcolor;'>$i<br>$head</div>";
                         echo "<div class='calendar-date' style='background-color: $bgcolor; color: $textcolor;'>$i</div>";
                     }
-
+                        echo "</div>";
                     // DB 연결 종료
                     $conn->close();
                     ?>
