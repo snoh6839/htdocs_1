@@ -128,6 +128,7 @@
                     // 달력에 출력할 날짜 구하기
                     $year = date('Y');
                     $month = date('m');
+                    $daycircle = date('d');
                     $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);
 
                     echo "<div class='calendar-header'><div class='month'>$month</div></div>";
@@ -136,7 +137,7 @@
                     // 달력 출력
                     for ($i = 1; $i <= $daysInMonth; $i++) {
                         // 현재 날짜와 비교하여 오늘인 경우 circle 클래스 추가
-                        $class = ($today == "$year-$month-$i") ? "circle" : "";
+                        $class = ($today == $daycircle) ? "circle" : "";
 
                         // todolist 테이블에서 해당 날짜의 데이터가 있는지 확인
                         $sql = "SELECT inf.mem_no, inf.mem_ID, li.head
@@ -162,11 +163,11 @@
                         // $head = $data['li.head'];
 
                         // 해당 날짜 출력
-                        // if($head = $data['head']){
-                            // echo "<div class='calendar-date $class' style='background-color: $bgcolor; color: $textcolor;'>$i<br>$head</div>";
-                        // }else{
-                            echo "<div class='calendar-date $class' style='background-color: $bgcolor; color: $textcolor;'>$i</div>";
-                        // }
+                        // $head = $data['head']
+                        // echo "<div class='calendar-date $class' style='background-color: $bgcolor; color: $textcolor;'>$i<br>$head</div>";
+                        
+                        echo "<div class='calendar-date $class' style='background-color: $bgcolor; color: $textcolor;'>$i</div>";
+                        
                     }
                         echo "</div>";
                     // DB 연결 종료
@@ -178,28 +179,28 @@
         </div>
     </div>
 
-</body>
-<script>
-    const pages = document.querySelectorAll('#main>div');
-    const gnbBtns = document.querySelectorAll('#gnb>li');
-
-    for (let i = 0; i < gnbBtns.length; i++) {
-        gnbBtns[i].addEventListener("click", function() {
-            for (let j = 0; j < pages.length; j++) {
-                if (pages[j].hidden === false) {
-                    pages[j].classList.add('hidden');
-                    gnbBtns[j].classList.remove('liClick');
-                    gnbBtns[j].querySelector('a').classList.remove('aClick');
-                    gnbBtns[j].querySelector('span').classList.remove('spanClick');
+    <script>
+        const pages = document.querySelectorAll('#main>div');
+        const gnbBtns = document.querySelectorAll('#gnb>li');
+    
+        for (let i = 0; i < gnbBtns.length; i++) {
+            gnbBtns[i].addEventListener("click", function() {
+                for (let j = 0; j < pages.length; j++) {
+                    if (pages[j].hidden === false) {
+                        pages[j].classList.add('hidden');
+                        gnbBtns[j].classList.remove('liClick');
+                        gnbBtns[j].querySelector('a').classList.remove('aClick');
+                        gnbBtns[j].querySelector('span').classList.remove('spanClick');
+                    }
                 }
-            }
-            pages[i].classList.toggle('hidden');
-            gnbBtns[i].classList.add('liClick');
-            gnbBtns[i].querySelector('a').classList.add('aClick');
-            gnbBtns[i].querySelector('span').classList.add('spanClick');
-        })
-    }
-</script>
+                pages[i].classList.toggle('hidden');
+                gnbBtns[i].classList.add('liClick');
+                gnbBtns[i].querySelector('a').classList.add('aClick');
+                gnbBtns[i].querySelector('span').classList.add('spanClick');
+            })
+        }
+    </script>
+</body>
 
 
 </html>
